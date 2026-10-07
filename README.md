@@ -75,15 +75,6 @@ t-SNE görselleştirmesinde pozitif ve negatif örneklerin büyük ölçüde iç
 
 - **Küçük veri:** 378 kayıt ve 76 kayıtlık test seti. Birkaç kayıt metrikleri belirgin biçimde değiştirir.
 - **Eşik seçimi:** Karar eşiği doğrudan test seti üzerinde seçilmiştir. Bu nedenle rapor edilen F1 değeri iyimser olabilir. Doğrusu eşiğin ayrı bir doğrulama (validation) setinde seçilmesidir.
-- **Çapraz doğrulama sızıntısı:** Augmentation, `GridSearchCV`'den önce uygulanmıştır. Aynı kaydın artırılmış kopyaları farklı katlara düştüğü için CV skoru (≈0,86) şişiktir. Genelleme performansı için test sonucu esas alınmalıdır.
-- **Konuşmacı bağımsızlığı:** Bölme kayıt bazında yapılmıştır. Aynı konuşmacının kayıtları hem eğitim hem test setinde bulunabilir.
-
-### Sonraki Adımlar
-
-- Konuşmacıya göre bölme ve `GroupKFold` ile sızıntısız değerlendirme
-- Eşiğin doğrulama setinde seçilmesi
-- Daha fazla ve daha çeşitli veri
-- Mel-spektrogram girdili derin öğrenme modeli ile karşılaştırma
 
 ### Notebook
 
@@ -207,19 +198,16 @@ Model 1 gave the more balanced result.
 
 The t-SNE visualization shows that positive and negative samples largely overlap, indicating that MFCC-based features do not clearly separate the two classes.
 
+![t-SNE](tsne_clean.png)
+
+| Example MFCC | Duration Distribution |
+|---|---|
+| ![MFCC](ornek_mfcc.png) | ![Duration distribution](sure_dagilimi.png) |
+
 ### Limitations
 
 - **Small dataset:** 378 recordings and a 76-recording test set. A few recordings noticeably change the metrics.
 - **Threshold selection:** The decision threshold was chosen directly on the test set, so the reported F1 may be optimistic. The correct approach is to select it on a separate validation set.
-- **Cross-validation leakage:** Augmentation was applied before `GridSearchCV`. Augmented copies of the same recording can fall into different folds, so the CV score (≈0.86) is inflated. The test result should be used as the estimate of generalization performance.
-- **Speaker independence:** The split was made at the recording level. Recordings from the same speaker may appear in both training and test sets.
-
-### Future Work
-
-- Speaker-wise splitting and `GroupKFold` for leakage-free evaluation
-- Selecting the threshold on a validation set
-- More and more diverse data
-- Comparison with a deep learning model using mel-spectrogram input
 
 ### Notebook
 

@@ -102,32 +102,33 @@ hey-pakize-wake-word-svm/
 
 ### Kurulum
 
-Projeyi bilgisayarınıza klonladıktan sonra proje dizinine geçin:
+Ses kayıtları paylaşılmadığı için notebook bu repodaki haliyle **doğrudan çalıştırılamaz**. Notebook'un çıktıları (sonuçlar, tablolar, grafikler) kayıtlı olduğundan incelemek için çalıştırmak gerekmez.
+
+Kendi ses verinizle denemek isterseniz:
+
+1. Repoyu klonlayın:
 
 ```bash
 git clone https://github.com/siladrtl/hey-pakize-wake-word-svm.git
 cd hey-pakize-wake-word-svm
 ```
 
-Sanal ortam oluşturulması önerilir:
+2. (Önerilir) Sanal ortam oluşturun. Windows'ta `venv\Scripts\activate` ile etkinleştirin:
 
 ```bash
 python -m venv venv
 ```
 
-Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-Gerekli Python paketlerini yükleyin:
+3. Gerekli paketleri yükleyin:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Notebook Google Colab'da çalıştırılmıştır. Veri yolları kendi Google Drive klasörüne göre ayarlıdır. Kendi verinizle çalıştırmak için `Hey_Pakize_Positives` ve `Not_Hey_Pakize` klasörlerini oluşturup yolları notebook'un başındaki ayar hücresinde güncelleyin.
+`requirements.txt` içinde sürüm sabitlenmemiştir, paketlerin güncel sürümleri kurulur. Çalışma Google Colab (Python 3) ortamında yapılmıştır. Farklı bir sürümde küçük uyumsuzluklar çıkabilir.
+
+4. `Hey_Pakize_Positives` ("Hey Pakize" kayıtları) ve `Not_Hey_Pakize` (diğer kayıtlar) adlı iki klasör oluşturup `.wav` dosyalarınızı yerleştirin.
+5. Notebook'un başındaki ayar hücresinde klasör yollarını kendi bilgisayarınıza veya Drive'ınıza göre güncelleyin. `drive.mount` hücresi yalnızca Colab içindir, yerelde çalıştırıyorsanız atlayın.
 
 ### Veri Hakkında
 
@@ -235,32 +236,33 @@ hey-pakize-wake-word-svm/
 
 ### Installation
 
-Clone the repository and navigate to the project directory:
+The voice recordings are not shared, so the notebook **cannot be run as-is** from this repository. Its outputs (results, tables, plots) are saved in the notebook, so there is no need to run it just to inspect them.
+
+To try it with your own voice data:
+
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/siladrtl/hey-pakize-wake-word-svm.git
 cd hey-pakize-wake-word-svm
 ```
 
-Creating a virtual environment is recommended:
+2. (Recommended) Create a virtual environment. On Windows, activate it with `venv\Scripts\activate`:
 
 ```bash
 python -m venv venv
 ```
 
-On Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-Install the required dependencies:
+3. Install the dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-The notebook was run on Google Colab and its data paths point to a personal Google Drive. To run it with your own data, create the `Hey_Pakize_Positives` and `Not_Hey_Pakize` folders and update the paths in the setup cell at the top of the notebook.
+Package versions are not pinned in `requirements.txt`, so the latest versions are installed. The work was done in Google Colab (Python 3). Minor incompatibilities may occur with other versions.
+
+4. Create two folders, `Hey_Pakize_Positives` ("Hey Pakize" recordings) and `Not_Hey_Pakize` (other recordings), and place your `.wav` files in them.
+5. Update the folder paths in the setup cell at the top of the notebook to match your computer or Drive. The `drive.mount` cell is for Colab only; skip it if running locally.
 
 ### About the Data
 
